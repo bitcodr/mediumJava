@@ -1,13 +1,17 @@
 package com.mediumJava.mediumJava.Model;
 
+import javax.validation.constraints.NotBlank;
 import java.util.UUID;
 
-public class BaseModel {
+public abstract class BaseModel {
 
+    @NotBlank
     protected final UUID id;
 
+    @NotBlank
     protected final int created_at;
 
+    @NotBlank
     protected final UUID created_by;
 
     protected final int updated_at;
