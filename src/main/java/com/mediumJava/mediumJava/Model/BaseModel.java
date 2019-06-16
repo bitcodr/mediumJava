@@ -6,17 +6,17 @@ import java.util.UUID;
 public abstract class BaseModel {
 
     @NotBlank
-    protected final UUID id;
+    private UUID id;
 
     @NotBlank
-    protected final int created_at;
+    private int created_at;
 
     @NotBlank
-    protected final UUID created_by;
+    private UUID created_by;
 
-    protected final int updated_at;
+    private int updated_at;
 
-    protected final UUID updated_by;
+    private UUID updated_by;
 
 
     public BaseModel(UUID id, int created_at, UUID created_by, int updated_at, UUID updated_by) {
@@ -27,6 +27,25 @@ public abstract class BaseModel {
         this.updated_by = updated_by;
     }
 
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public void setCreated_at(int created_at) {
+        this.created_at = created_at;
+    }
+
+    public void setCreated_by(UUID created_by) {
+        this.created_by = created_by;
+    }
+
+    public void setUpdated_at(int updated_at) {
+        this.updated_at = updated_at;
+    }
+
+    public void setUpdated_by(UUID updated_by) {
+        this.updated_by = updated_by;
+    }
 
     public UUID getId() {
         return id;

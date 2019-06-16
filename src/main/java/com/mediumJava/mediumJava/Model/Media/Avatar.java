@@ -2,11 +2,11 @@ package com.mediumJava.mediumJava.Model.Media;
 
 public class Avatar {
 
-    private final String url;
+    private String url;
 
-    private final String type;
+    private String type;
 
-    private final ImageSize size;
+    private ImageSize size;
 
 
     public Avatar(String url, String type, ImageSize size) {
@@ -15,16 +15,30 @@ public class Avatar {
         this.size = size;
     }
 
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     public String getUrl() {
         return url;
+    }
+
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getType() {
         return type;
     }
 
+    public void setSize(ImageSize size) {
+        this.size = size;
+    }
+
     public ImageSize getSize() {
         return size;
     }
+
 
 }
