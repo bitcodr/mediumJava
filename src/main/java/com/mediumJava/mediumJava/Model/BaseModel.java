@@ -1,18 +1,23 @@
 package com.mediumJava.mediumJava.Model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.validation.constraints.NotBlank;
 import java.util.UUID;
 
-public abstract class BaseModel {
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+public class BaseModel {
 
     @NotBlank
-    private UUID id;
+    private UUID id, created_by;
 
     @NotBlank
     private int created_at;
-
-    @NotBlank
-    private UUID created_by;
 
     private int updated_at;
 

@@ -2,9 +2,7 @@ package com.mediumJava.mediumJava.Model.Media;
 
 public class Avatar {
 
-    private String url;
-
-    private String type;
+    private String url, type;
 
     private ImageSize size;
 

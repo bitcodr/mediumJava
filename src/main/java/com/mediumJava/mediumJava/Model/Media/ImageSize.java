@@ -2,9 +2,7 @@ package com.mediumJava.mediumJava.Model.Media;
 
 public class ImageSize {
 
-    private float width;
-
-    private float height;
+    private float width, height;
 
     public ImageSize(float width, float height) {
         this.width = width;

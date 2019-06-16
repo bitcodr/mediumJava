@@ -8,10 +8,7 @@ import java.util.UUID;
 public class WebUser extends BaseUser {
 
     @NotBlank
-    private String firstName;
-
-    @NotBlank
-    private String lastName;
+    private String firstName, lastName;
 
     private Avatar avatar;
 

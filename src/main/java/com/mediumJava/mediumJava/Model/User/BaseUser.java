@@ -5,7 +5,7 @@ import com.mediumJava.mediumJava.Model.BaseModel;
 import javax.validation.constraints.NotBlank;
 import java.util.UUID;
 
-public abstract class BaseUser extends BaseModel {
+public class BaseUser extends BaseModel {
 
 
     @NotBlank
