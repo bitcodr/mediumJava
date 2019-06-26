@@ -1,6 +1,8 @@
 package com.mediumJava.mediumJava.Repository.Interfaces;
 
-public interface BaseInterface {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BaseInterface extends JpaRepository {
 
 
 }

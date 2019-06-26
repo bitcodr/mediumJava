@@ -2,13 +2,13 @@ package com.mediumJava.mediumJava.Model.User;
 
 import com.mediumJava.mediumJava.Model.BaseModel;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 public class BaseUser extends BaseModel {
 
 
-    @NotBlank
+    @NotNull
     private String email;
 
     public BaseUser(UUID id, int created_at, UUID created_by, int updated_at, UUID updated_by, String email) {

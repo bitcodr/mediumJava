@@ -1,13 +1,17 @@
 package com.mediumJava.mediumJava.Model.User;
 
 import com.mediumJava.mediumJava.Model.Media.Avatar;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotBlank;
+import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
 import java.util.UUID;
+
 
 public class WebUser extends BaseUser {
 
-    @NotBlank
+    @NotNull
     private String firstName, lastName;
 
     private Avatar avatar;
