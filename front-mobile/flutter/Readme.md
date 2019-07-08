@@ -1,3 +1,0 @@
-**Medium**
-
-Medium.com instance for starters implemented in : React, Vue, Angular, WebAssembly etc...
