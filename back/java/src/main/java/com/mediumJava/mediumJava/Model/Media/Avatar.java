@@ -6,6 +6,7 @@ public class Avatar {
 
     private ImageSize size;
 
+    
     public Avatar(String url, String type, ImageSize size) {
         this.url = url;
         this.type = type;
