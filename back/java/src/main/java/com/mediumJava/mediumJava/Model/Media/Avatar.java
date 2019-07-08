@@ -6,7 +6,6 @@ public class Avatar {
 
     private ImageSize size;
 
-
     public Avatar(String url, String type, ImageSize size) {
         this.url = url;
         this.type = type;
@@ -20,7 +19,6 @@ public class Avatar {
     public String getUrl() {
         return url;
     }
-
 
     public void setType(String type) {
         this.type = type;
@@ -37,6 +35,5 @@ public class Avatar {
     public ImageSize getSize() {
         return size;
     }
-
 
 }

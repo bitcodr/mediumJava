@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MediumJavaApplication<mediumJava>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.mediumJava.mediumJava.MediumJavaApplication",
+            "projectName": "mediumJava",
+            "args": ""
+        }
+    ]
+}
