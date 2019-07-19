@@ -5,6 +5,7 @@ import com.medium.instance.models.media.Avatar;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.UUID;
 
 
@@ -12,6 +13,7 @@ import java.util.UUID;
 public class WebUser extends BaseUser {
 
     @NotNull
+    @Size(min=5, max=30)
     private String firstName, lastName;
 
     private Avatar avatar;
