@@ -11,10 +11,10 @@ public class BaseUser extends BaseModel {
     @NotNull
     private String email;
 
-    protected BaseUser(UUID id, int created_at, UUID created_by, int updated_at, UUID updated_by, Status status, String email) {
-        super(id, created_at, created_by, updated_at, updated_by, status);
-        this.email = email;
-    }
+//    protected BaseUser(UUID id, int created_at, UUID created_by, int updated_at, UUID updated_by, Status status, String email) {
+//        super(id, created_at, created_by, updated_at, updated_by, status);
+//        this.email = email;
+//    }
 
     public void setEmail(String email) {
         this.email = email;

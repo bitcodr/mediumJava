@@ -13,17 +13,17 @@ import java.util.UUID;
 public class WebUser extends BaseUser {
 
     @NotNull
-    @Size(min=5, max=30)
+    @Size(min = 5, max = 30)
     private String firstName, lastName;
 
     private Avatar avatar;
 
-    public WebUser(UUID id, int created_at, UUID created_by, int updated_at, UUID updated_by, Status status, String email, String firstName, String lastName, Avatar avatar) {
-        super(id, created_at, created_by, updated_at, updated_by, status, email);
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.avatar = avatar;
-    }
+//    public WebUser(UUID id, int created_at, UUID created_by, int updated_at, UUID updated_by, Status status, String email, String firstName, String lastName, Avatar avatar) {
+//        super(id, created_at, created_by, updated_at, updated_by, status, email);
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.avatar = avatar;
+//    }
 
     public void setFirstName(String firstName) {
 

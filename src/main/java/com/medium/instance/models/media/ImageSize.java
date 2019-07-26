@@ -3,10 +3,10 @@ package com.medium.instance.models.media;
 public class ImageSize {
     private float width, height;
 
-    public ImageSize(float width, float height) {
-        this.width = width;
-        this.height = height;
-    }
+//    public ImageSize(float width, float height) {
+//        this.width = width;
+//        this.height = height;
+//    }
 
     public void setWidth(float width) {
         this.width = width;
