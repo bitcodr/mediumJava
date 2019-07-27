@@ -12,7 +12,7 @@ import java.util.UUID;
 @Entity  // This tells Hibernate to make a table out of this class
 public class WebUser extends BaseUser {
 
-    @NotNull
+    @NotNull(message = "can not be null")
     @Size(min = 5, max = 30)
     private String firstName, lastName;
 
