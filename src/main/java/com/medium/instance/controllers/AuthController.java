@@ -9,11 +9,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Map;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/users")
 public class AuthController {
+
+    Map<String, WebUser> users;
 
     private final WebUserRepository userRepository;
 
@@ -45,6 +48,18 @@ public class AuthController {
     @GetMapping
     public WebUser[] getUsers(@RequestParam(value = "page", defaultValue = "1") int page, @RequestParam(value = "limit", defaultValue = "10") int limit, @RequestParam(value = "sort", required = false) String sort) {
         return null;
+    }
+
+    @PutMapping(path = "/{userID}", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public WebUser updateUser(@PathVariable String userID, @Valid @RequestBody WebUser webuser){
+        if(users.containsKey(userID))
+        {
+            WebUser oldUser = users.get(userID);
+            oldUser.setFirstName(webuser.getFirstName());
+            users.put(userID,oldUser);
+            return webuser;
+        }
+       return null;
     }
 
 
