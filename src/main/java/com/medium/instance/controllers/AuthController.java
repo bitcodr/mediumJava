@@ -3,6 +3,7 @@ package com.medium.instance.controllers;
 
 import com.medium.instance.models.user.WebUser;
 import com.medium.instance.repositories.WebUserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,15 +19,13 @@ public class AuthController {
 
     private Map<String, WebUser> users;
 
-    private final WebUserRepository userRepository;
+    @Autowired
+    private WebUserRepository userRepository;
 
-    AuthController(WebUserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     @PostMapping(path = "/register", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<WebUser> registerUser(@Valid @RequestBody WebUser webuser) {
-        this.userRepository.save(webuser);
+        userRepository.save(webuser);
         return new ResponseEntity<WebUser>(webuser, HttpStatus.CREATED);
     }
 
