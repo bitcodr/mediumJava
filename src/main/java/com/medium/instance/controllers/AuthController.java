@@ -16,7 +16,7 @@ import java.util.UUID;
 @RequestMapping("/api/v1/users")
 public class AuthController {
 
-    Map<String, WebUser> users;
+    private Map<String, WebUser> users;
 
     private final WebUserRepository userRepository;
 
@@ -51,16 +51,21 @@ public class AuthController {
     }
 
     @PutMapping(path = "/{userID}", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public WebUser updateUser(@PathVariable String userID, @Valid @RequestBody WebUser webuser){
-        if(users.containsKey(userID))
-        {
-            WebUser oldUser = users.get(userID);
+    public WebUser updateUser(@PathVariable String userID, @Valid @RequestBody WebUser webuser) {
+        if (this.users.containsKey(userID)) {
+            WebUser oldUser = this.users.get(userID);
             oldUser.setFirstName(webuser.getFirstName());
-            users.put(userID,oldUser);
+            this.users.put(userID, oldUser);
             return webuser;
         }
-       return null;
+        return null;
     }
 
+
+    @DeleteMapping(path = "/{userID}")
+    public ResponseEntity<Void> deleteUser(@PathVariable String userID){
+        users.remove(userID);
+        return ResponseEntity.ok().build();
+    }
 
 }
