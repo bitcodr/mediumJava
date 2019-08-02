@@ -1,8 +1,6 @@
 package com.medium.instance.models;
 
 
-import org.springframework.beans.factory.annotation.Value;
-
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
@@ -22,14 +20,14 @@ public class BaseModel {
     private Status status;
 
 
-//    protected BaseModel(UUID id, int created_at, UUID created_by, int updated_at, UUID updated_by, Status status) {
-//        this.id = id;
-//        this.created_at = created_at;
-//        this.created_by = created_by;
-//        this.updated_at = updated_at;
-//        this.updated_by = updated_by;
-//        this.status = status;
-//    }
+    protected BaseModel(UUID id, int created_at, UUID created_by, int updated_at, UUID updated_by, Status status) {
+        this.id = id;
+        this.created_at = created_at;
+        this.created_by = created_by;
+        this.updated_at = updated_at;
+        this.updated_by = updated_by;
+        this.status = status;
+    }
 
     public void setId(UUID id) {
         this.id = id;
