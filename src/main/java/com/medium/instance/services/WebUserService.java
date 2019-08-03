@@ -1,4 +1,12 @@
 package com.medium.instance.services;
 
-public class WebUserService {
+import org.springframework.stereotype.Service;
+
+@Service
+public class WebUserService implements WebUserServiceInterface {
+
+    @Override
+    public String createWebUser() {
+        return null;
+    }
 }
