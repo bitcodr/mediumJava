@@ -1,17 +1,19 @@
 package com.medium.instance.models.media;
 
+
+import javax.persistence.Column;
+
 public class Avatar {
 
-    private String url, type;
+
+    @Column(length = 400,nullable = false)
+    private String url;
+
+    @Column(length = 400,nullable = false)
+    private String type;
 
     private ImageSize size;
 
-
-    public Avatar(String url, String type, ImageSize size) {
-        this.url = url;
-        this.type = type;
-        this.size = size;
-    }
 
     public void setUrl(String url) {
         this.url = url;

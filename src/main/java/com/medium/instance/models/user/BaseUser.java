@@ -1,11 +1,10 @@
 package com.medium.instance.models.user;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.medium.instance.models.BaseModel;
-import com.medium.instance.models.Status;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
-import java.util.UUID;
 
 public class BaseUser extends BaseModel {
 
@@ -13,10 +12,8 @@ public class BaseUser extends BaseModel {
     @Email
     private String email;
 
-    protected BaseUser(UUID id, int created_at, UUID created_by, int updated_at, UUID updated_by, Status status, String email) {
-        super(id, created_at, created_by, updated_at, updated_by, status);
-        this.email = email;
-    }
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private String password;
 
     public void setEmail(String email) {
         this.email = email;
