@@ -1,6 +1,7 @@
 package com.medium.instance.models.user;
 
 import com.medium.instance.models.media.Avatar;
+import org.springframework.data.annotation.Reference;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,10 +17,16 @@ public class WebUser extends BaseUser {
     @Column(nullable = false, length = 70, unique = true)
     private String firstName, lastName;
 
+    @Reference
     private Avatar avatar;
 
+    @NotNull
+    @Column(length = 400,nullable = false)
     private String emailVerificationToken;
-    private boolean emailISVerified;
+
+    @NotNull
+    @Column(nullable = false)
+    private boolean emailISVerified = false;
 
     public String getEmailVerificationToken() {
         return emailVerificationToken;

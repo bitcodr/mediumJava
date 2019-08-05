@@ -1,25 +1,41 @@
 package com.medium.instance.models;
 
 
-import javax.persistence.Column;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
+@Entity
 public class BaseModel {
 
 
+    @Id
     @NotNull
-    private UUID id, created_by;
+    @Column(nullable = false, unique = true)
+    private UUID id;
 
     @NotNull
+    @Column(nullable = false, length = 36)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private UUID created_by;
+
+    @NotNull
+    @Column(length = 12,nullable = false)
     private int created_at;
 
+    @Column(length = 12,nullable = true)
     private int updated_at;
 
+    @Column(nullable = true,length = 36)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private UUID updated_by;
 
-    @Column(columnDefinition = Status.ACTIVATE)
-    private Status status;
+    @NotNull
+    @Column(length = 20, nullable = false)
+    @Enumerated(value = EnumType.STRING)
+    private Status status = Status.ACTIVATE;
 
 
     public void setId(UUID id) {

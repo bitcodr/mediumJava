@@ -2,16 +2,23 @@ package com.medium.instance.models.media;
 
 
 import javax.persistence.Column;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class Avatar {
 
 
+    @NotNull
+    @Size(min = 1,max = 400)
     @Column(length = 400,nullable = false)
     private String url;
 
-    @Column(length = 400,nullable = false)
+    @NotNull
+    @Size(min = 1, max = 10)
+    @Column(length = 10,nullable = false)
     private String type;
 
+    @NotNull
     private ImageSize size;
 
 

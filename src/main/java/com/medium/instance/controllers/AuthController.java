@@ -2,7 +2,6 @@ package com.medium.instance.controllers;
 
 
 import com.medium.instance.models.user.WebUser;
-import com.medium.instance.repositories.WebUserRepository;
 import com.medium.instance.services.WebUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,9 +22,9 @@ public class AuthController {
 
 
     @PostMapping(path = "/register", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public ResponseEntity<WebUser> registerUser(@Valid @RequestBody WebUser webuser) {
-        userService.createWebUser(webuser);
-        return new ResponseEntity<WebUser>(webuser, HttpStatus.CREATED);
+    public ResponseEntity<UUID> registerUser(@Valid @RequestBody WebUser webuser) {
+        UUID response = userService.createWebUser(webuser);
+        return new ResponseEntity<UUID>(response, HttpStatus.CREATED);
     }
 
 
