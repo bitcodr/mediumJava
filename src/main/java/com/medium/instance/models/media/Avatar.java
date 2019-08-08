@@ -2,6 +2,7 @@ package com.medium.instance.models.media;
 
 
 import javax.persistence.Column;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -19,6 +20,7 @@ public class Avatar {
     private String type;
 
     @NotNull
+    @OneToOne
     private ImageSize size;
 
 
