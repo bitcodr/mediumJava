@@ -1,10 +1,9 @@
 package com.medium.instance.services;
 
-import com.medium.instance.models.DTO.user.WebUser;
-
-import java.util.UUID;
+import com.medium.instance.models.DTO.user.WebUserDTO;
+import com.medium.instance.models.response.user.WebUserResponse;
 
 public interface WebUserServiceInterface {
 
-     UUID createWebUser(WebUser webUser);
+     WebUserResponse createWebUser(WebUserDTO webUser);
 }

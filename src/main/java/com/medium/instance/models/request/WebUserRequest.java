@@ -6,7 +6,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-public class WebUser implements Serializable {
+public class WebUserRequest implements Serializable {
 
     @NotNull
     @Length(min = 5, max = 30)

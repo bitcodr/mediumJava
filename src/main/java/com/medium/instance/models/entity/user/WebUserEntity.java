@@ -1,17 +1,17 @@
 package com.medium.instance.models.entity.user;
 
-import com.medium.instance.models.DTO.media.Media;
+import com.medium.instance.models.DTO.media.MediaDTO;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity(name = "users")
-public class WebUser extends BaseUser {
+public class WebUserEntity extends BaseUserEntity {
 
 
     @NotNull
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "webUser")
-    private Media avatar;
+    private MediaDTO avatar;
 
     @NotNull
     @Column(length = 400, nullable = false)
@@ -37,11 +37,11 @@ public class WebUser extends BaseUser {
         this.emailISVerified = emailISVerified;
     }
 
-    public Media getAvatar() {
+    public MediaDTO getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(Media avatar) {
+    public void setAvatar(MediaDTO avatar) {
         this.avatar = avatar;
     }
 }

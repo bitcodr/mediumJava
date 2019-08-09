@@ -1,11 +1,12 @@
 package com.medium.instance.services;
 
-import com.medium.instance.models.DTO.user.WebUser;
+import com.medium.instance.models.DTO.user.WebUserDTO;
+import com.medium.instance.models.entity.user.WebUserEntity;
+import com.medium.instance.models.response.user.WebUserResponse;
 import com.medium.instance.repositories.WebUserRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.UUID;
 
 @Service
 public class WebUserService implements WebUserServiceInterface {
@@ -14,8 +15,10 @@ public class WebUserService implements WebUserServiceInterface {
     WebUserRepository userRepo;
 
     @Override
-    public UUID createWebUser(WebUser webuser) {
-        userRepo.save(webuser);
+    public WebUserResponse createWebUser(WebUserDTO webuserDTO) {
+        ModelMapper mapper = new ModelMapper();
+        WebUserEntity webUserEntity = mapper.map(webuserDTO,WebUserEntity.class);
+        userRepo.save(webUserEntity);
         return webuser.getId();
     }
 }

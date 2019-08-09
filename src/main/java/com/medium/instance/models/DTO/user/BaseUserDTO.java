@@ -1,14 +1,14 @@
 package com.medium.instance.models.DTO.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.medium.instance.models.DTO.BaseModel;
+import com.medium.instance.models.DTO.BaseDTO;
 
 import javax.persistence.Column;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class BaseUser extends BaseModel {
+public class BaseUserDTO extends BaseDTO {
 
     @NotNull
     @Email

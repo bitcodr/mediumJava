@@ -7,7 +7,7 @@ import javax.persistence.Column;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
-public class BaseUser extends BaseEntity {
+public class BaseUserEntity extends BaseEntity {
 
     @NotNull
     @Length(min = 5, max = 30)

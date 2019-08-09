@@ -1,7 +1,6 @@
 package com.medium.instance.models.DTO.user;
 
-import com.medium.instance.models.DTO.media.Media;
-import org.hibernate.annotations.Columns;
+import com.medium.instance.models.DTO.media.MediaDTO;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -9,7 +8,7 @@ import javax.validation.constraints.Size;
 
 
 @Entity(name = "users")  // This tells Hibernate to make a table out of this class
-public class WebUser extends BaseUser {
+public class WebUserDTO extends BaseUserDTO {
 
     @NotNull
     @Size(min = 5, max = 30)
@@ -17,7 +16,7 @@ public class WebUser extends BaseUser {
     private String firstName, lastName;
 
     @NotNull
-    private Media avatar;
+    private MediaDTO avatar;
 
     @NotNull
     @Column(length = 400,nullable = false)
@@ -63,11 +62,11 @@ public class WebUser extends BaseUser {
         this.lastName = lastName;
     }
 
-    public Media getAvatar() {
+    public MediaDTO getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(Media avatar) {
+    public void setAvatar(MediaDTO avatar) {
         this.avatar = avatar;
     }
 }

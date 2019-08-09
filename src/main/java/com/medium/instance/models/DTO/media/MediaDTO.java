@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
-public class Media implements Serializable {
+public class MediaDTO implements Serializable {
 
     @NotNull
     @Size(min = 1,max = 400)

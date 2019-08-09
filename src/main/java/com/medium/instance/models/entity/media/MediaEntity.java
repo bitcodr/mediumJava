@@ -3,14 +3,14 @@ package com.medium.instance.models.entity.media;
 import com.medium.instance.models.MediaPrefix;
 import com.medium.instance.models.MediaSizeType;
 import com.medium.instance.models.entity.BaseEntity;
-import com.medium.instance.models.entity.user.WebUser;
+import com.medium.instance.models.entity.user.WebUserEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity(name = "media")
-public class Media extends BaseEntity {
+public class MediaEntity extends BaseEntity {
 
     @NotNull
     @Size(min = 1,max = 400)
@@ -42,7 +42,7 @@ public class Media extends BaseEntity {
     @NotNull
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id",nullable = false,updatable = false)
-    private WebUser webUser;
+    private WebUserEntity webUser;
 
 
 
@@ -95,11 +95,11 @@ public class Media extends BaseEntity {
         this.width = width;
     }
 
-    public WebUser getWebUser() {
+    public WebUserEntity getWebUser() {
         return webUser;
     }
 
-    public void setWebUser(WebUser webUser) {
+    public void setWebUser(WebUserEntity webUser) {
         this.webUser = webUser;
     }
 
