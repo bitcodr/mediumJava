@@ -1,6 +1,6 @@
 package com.medium.instance.models.DTO.user;
 
-import com.medium.instance.models.DTO.media.BaseMedia;
+import com.medium.instance.models.DTO.media.Media;
 import org.hibernate.annotations.Columns;
 
 import javax.persistence.*;
@@ -11,16 +11,13 @@ import javax.validation.constraints.Size;
 @Entity(name = "users")  // This tells Hibernate to make a table out of this class
 public class WebUser extends BaseUser {
 
-    @NotNull(message = "can not be null")
+    @NotNull
     @Size(min = 5, max = 30)
     @Column(nullable = false, length = 70, unique = true)
     private String firstName, lastName;
 
-    @Columns(columns = {@Column(name = "url"),
-            @Column(name = "type"),@Column(name = "height"),
-            @Column(name = "width"),@Column(name = "sizeType")})
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "webUser")
-    private BaseMedia avatar;
+    @NotNull
+    private Media avatar;
 
     @NotNull
     @Column(length = 400,nullable = false)
@@ -66,11 +63,11 @@ public class WebUser extends BaseUser {
         this.lastName = lastName;
     }
 
-    public BaseMedia getAvatar() {
+    public Media getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(BaseMedia avatar) {
+    public void setAvatar(Media avatar) {
         this.avatar = avatar;
     }
 }

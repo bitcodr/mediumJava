@@ -1,15 +1,16 @@
-package com.medium.instance.models.entity;
+package com.medium.instance.models.entity.media;
 
 import com.medium.instance.models.MediaPrefix;
 import com.medium.instance.models.MediaSizeType;
+import com.medium.instance.models.entity.BaseEntity;
+import com.medium.instance.models.entity.user.WebUser;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.UUID;
 
 @Entity(name = "media")
-public class MediaEntity extends BaseEntity {
+public class Media extends BaseEntity {
 
     @NotNull
     @Size(min = 1,max = 400)
@@ -29,6 +30,9 @@ public class MediaEntity extends BaseEntity {
     @Column(nullable = false, updatable = true, length = 11)
     private int weight;
 
+    @NotNull
+    @Column(nullable = false,length = 11)
+    private int width;
 
     @Column(name = "size_type",nullable = false,updatable = true)
     @Enumerated(EnumType.STRING)
@@ -36,8 +40,11 @@ public class MediaEntity extends BaseEntity {
     private MediaSizeType sizeType;
 
     @NotNull
-    @Column(name = "reference_id",nullable = false,updatable = false)
-    private UUID referenceID;
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id",nullable = false,updatable = false)
+    private WebUser webUser;
+
+
 
     public void setUrl(String url) {
         this.url = url;
@@ -79,11 +86,21 @@ public class MediaEntity extends BaseEntity {
         this.sizeType = sizeType;
     }
 
-    public UUID getReferenceID() {
-        return referenceID;
+
+    public int getWidth() {
+        return width;
     }
 
-    public void setReferenceID(UUID referenceID) {
-        this.referenceID = referenceID;
+    public void setWidth(int width) {
+        this.width = width;
     }
+
+    public WebUser getWebUser() {
+        return webUser;
+    }
+
+    public void setWebUser(WebUser webUser) {
+        this.webUser = webUser;
+    }
+
 }

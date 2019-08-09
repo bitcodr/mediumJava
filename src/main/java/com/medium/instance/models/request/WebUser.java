@@ -4,8 +4,9 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
-public class WebUserRequest {
+public class WebUser implements Serializable {
 
     @NotNull
     @Length(min = 5, max = 30)

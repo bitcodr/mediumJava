@@ -1,12 +1,13 @@
-package com.medium.instance.models.entity;
+package com.medium.instance.models.entity.user;
 
+import com.medium.instance.models.entity.BaseEntity;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Column;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
-public class BaseUserEntity extends BaseEntity {
+public class BaseUser extends BaseEntity {
 
     @NotNull
     @Length(min = 5, max = 30)
@@ -69,6 +70,7 @@ public class BaseUserEntity extends BaseEntity {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
 }
 
 

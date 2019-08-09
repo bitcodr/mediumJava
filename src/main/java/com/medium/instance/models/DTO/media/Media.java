@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
-public class BaseMedia implements Serializable {
+public class Media implements Serializable {
 
     @NotNull
     @Size(min = 1,max = 400)
@@ -20,7 +20,7 @@ public class BaseMedia implements Serializable {
     private MediaPrefix prefix;
 
     @NotNull
-    private float width, height,weight;
+    private int width, height,weight;
 
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -42,27 +42,27 @@ public class BaseMedia implements Serializable {
         this.prefix = prefix;
     }
 
-    public float getWidth() {
+    public int getWidth() {
         return width;
     }
 
-    public void setWidth(float width) {
+    public void setWidth(int width) {
         this.width = width;
     }
 
-    public float getHeight() {
+    public int getHeight() {
         return height;
     }
 
-    public void setHeight(float height) {
+    public void setHeight(int height) {
         this.height = height;
     }
 
-    public float getWeight() {
+    public int getWeight() {
         return weight;
     }
 
-    public void setWeight(float weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 
