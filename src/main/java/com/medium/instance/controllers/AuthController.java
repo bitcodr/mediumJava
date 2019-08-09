@@ -1,7 +1,7 @@
 package com.medium.instance.controllers;
 
 
-import com.medium.instance.models.user.WebUser;
+import com.medium.instance.models.DTO.user.WebUser;
 import com.medium.instance.services.WebUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

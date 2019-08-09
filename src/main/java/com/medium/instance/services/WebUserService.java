@@ -1,6 +1,6 @@
 package com.medium.instance.services;
 
-import com.medium.instance.models.user.WebUser;
+import com.medium.instance.models.DTO.user.WebUser;
 import com.medium.instance.repositories.WebUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

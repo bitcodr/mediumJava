@@ -1,30 +1,15 @@
-package com.medium.instance.models.user;
+package com.medium.instance.models.DTO.user;
 
-import com.medium.instance.models.Status;
-import com.medium.instance.models.media.Avatar;
+import com.medium.instance.models.DTO.media.BaseMedia;
 import org.hibernate.annotations.Columns;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
-import java.util.UUID;
 
 
 @Entity(name = "users")  // This tells Hibernate to make a table out of this class
 public class WebUser extends BaseUser {
-
-    public WebUser(){
-
-    }
-
-    public WebUser(UUID id, Date created_at, UUID created_by, Date updated_at, UUID updated_by, Status status, String email, String firstName, String lastName, Avatar avatar) {
-        super(id, created_at, created_by, updated_at, updated_by, email, status);
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.avatar = avatar;
-    }
-
 
     @NotNull(message = "can not be null")
     @Size(min = 5, max = 30)
@@ -35,7 +20,7 @@ public class WebUser extends BaseUser {
             @Column(name = "type"),@Column(name = "height"),
             @Column(name = "width"),@Column(name = "sizeType")})
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "webUser")
-    private Avatar avatar;
+    private BaseMedia avatar;
 
     @NotNull
     @Column(length = 400,nullable = false)
@@ -81,14 +66,11 @@ public class WebUser extends BaseUser {
         this.lastName = lastName;
     }
 
-    public Avatar getAvatar() {
-
+    public BaseMedia getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(Avatar avatar) {
-
+    public void setAvatar(BaseMedia avatar) {
         this.avatar = avatar;
     }
-
 }

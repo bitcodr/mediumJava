@@ -1,6 +1,6 @@
 package com.medium.instance.repositories;
 
-import com.medium.instance.models.user.WebUser;
+import com.medium.instance.models.DTO.user.WebUser;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
