@@ -12,6 +12,7 @@ import javax.validation.constraints.Size;
 @Entity(name = "media")  // This tells Hibernate to make a table out of this class
 public class MediaEntity extends BaseEntity {
 
+
     @NotNull
     @Size(min = 1,max = 400)
     @Column(length = 400,nullable = false, updatable = true)

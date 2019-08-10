@@ -12,24 +12,24 @@ public class BaseUserEntity extends BaseEntity {
     @NotNull
     @Length(min = 5, max = 30)
     @Column(nullable = true, updatable = true)
-    private String name, lastName;
+    protected String name, lastName;
 
     @NotNull
     @Email
     @Column(nullable = false, unique = true, updatable = false)
-    private String email;
+    protected String email;
 
 
     @NotNull
     @Length(min = 8, max = 32)
     @Column(nullable = false, unique = true, updatable = false, length = 32)
-    private String username;
+    protected String username;
 
 
     @NotNull
     @Length(max = 255)
     @Column(nullable = false, unique = true, updatable = false)
-    private String password;
+    protected String password;
 
     public String getEmail() {
         return email;

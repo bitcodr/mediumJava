@@ -11,7 +11,7 @@ public class BaseResponse implements Serializable {
 
     @NotNull
     @Id
-    private UUID id;
+    protected UUID id;
 
     public UUID getId() {
         return id;

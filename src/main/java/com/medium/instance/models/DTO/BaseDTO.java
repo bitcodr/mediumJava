@@ -15,14 +15,14 @@ public class BaseDTO implements Serializable {
 
     @Id
     @NotNull
-    private UUID id;
+    protected UUID id;
 
 
     @NotNull
-    private Date createdAt;
+    protected Date createdAt;
 
     @NotNull
-    private Status status;
+    protected Status status;
 
 
     public static long getSerialVersionUID() {

@@ -22,25 +22,25 @@ public class BaseEntity implements Serializable {
     @Column(nullable = false, unique = true,updatable = false)
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid" ,strategy = "org.hibernate.id.UUIDGenerator")
-    private UUID id;
+    protected UUID id;
 
     @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, updatable = false)
     @CreatedDate
-    private Date createdAt;
+    protected Date createdAt;
 
 
     @NotNull
     @Column(name = "created_by", nullable = false, updatable = false)
     @CreatedBy
-    private UUID createdBy;
+    protected UUID createdBy;
 
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_at", nullable = true)
     @LastModifiedDate
-    private Date updatedAt;
+    protected Date updatedAt;
 
 
     @Column(name = "updated_by", nullable = true)
@@ -50,7 +50,7 @@ public class BaseEntity implements Serializable {
     @NotNull
     @Column(length = 20, nullable = false, updatable = true)
     @Enumerated(value = EnumType.STRING)
-    private Status status = Status.ACTIVATE;
+    protected Status status = Status.ACTIVATE;
 
     public UUID getId() {
         return id;
