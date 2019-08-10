@@ -1,6 +1,7 @@
 package com.medium.instance.models.entity;
 
 import com.medium.instance.models.Status;
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -18,8 +19,9 @@ public class BaseEntity implements Serializable {
 
     @Id
     @NotNull
-    @Column(nullable = false, unique = true)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false, unique = true,updatable = false)
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid" ,strategy = "org.hibernate.id.UUIDGenerator")
     private UUID id;
 
     @NotNull

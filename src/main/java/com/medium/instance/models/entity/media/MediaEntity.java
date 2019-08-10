@@ -9,7 +9,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-@Entity(name = "media")
+@Entity(name = "media")  // This tells Hibernate to make a table out of this class
 public class MediaEntity extends BaseEntity {
 
     @NotNull

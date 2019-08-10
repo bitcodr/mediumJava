@@ -5,7 +5,7 @@ import com.medium.instance.models.DTO.media.MediaDTO;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Entity(name = "users")
+@Entity(name = "users")  // This tells Hibernate to make a table out of this class
 public class WebUserEntity extends BaseUserEntity {
 
 
