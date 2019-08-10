@@ -9,7 +9,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-@Entity(name = "media")  // This tells Hibernate to make a table out of this class
+@Entity(name = "media")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorValue("mediaEntity")
 public class MediaEntity extends BaseEntity {
@@ -21,25 +21,30 @@ public class MediaEntity extends BaseEntity {
     private String url;
 
     @NotNull
-    @Column(nullable = false,updatable = true)
-    @Enumerated(EnumType.STRING)
+    @Size(min = 1,max = 10)
+    @Column(nullable = false,updatable = true,length = 10)
+    @Enumerated(EnumType.ORDINAL)
     private MediaPrefix prefix;
 
     @NotNull
+    @Size(min = 1,max = 11)
     @Column(nullable = false, updatable = true, length = 11)
     private int height;
 
     @NotNull
+    @Size(min = 1,max = 11)
     @Column(nullable = false, updatable = true, length = 11)
     private int weight;
 
     @NotNull
+    @Size(min = 1,max = 11)
     @Column(nullable = false,length = 11)
     private int width;
 
-    @Column(name = "size_type",nullable = false,updatable = true)
-    @Enumerated(EnumType.STRING)
+    @Column(name = "size_type",nullable = false,updatable = true,length = 15)
+    @Enumerated(EnumType.ORDINAL)
     @NotNull
+    @Size(min = 1,max = 15)
     private MediaSizeType sizeType;
 
     @NotNull

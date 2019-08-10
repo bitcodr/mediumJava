@@ -16,11 +16,11 @@ public class WebUserEntity extends BaseUserEntity {
     private MediaEntity avatar;
 
     @NotNull
-    @Column(length = 400, nullable = false)
+    @Column(length = 255, nullable = false,name = "email_verification_token")
     private String emailVerificationToken;
 
     @NotNull
-    @Column(nullable = false)
+    @Column(nullable = false,name = "email_is_verified")
     private boolean emailISVerified = false;
 
     public String getEmailVerificationToken() {

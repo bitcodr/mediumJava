@@ -13,12 +13,12 @@ public class BaseUserEntity extends BaseEntity {
 
     @NotNull
     @Length(min = 5, max = 30)
-    @Column(nullable = true, updatable = true)
+    @Column(nullable = true, updatable = true,length = 30)
     private String name, lastName;
 
     @NotNull
     @Email
-    @Column(nullable = false, unique = true, updatable = false)
+    @Column(nullable = false, unique = true, updatable = false,length = 70)
     private String email;
 
 
@@ -30,7 +30,7 @@ public class BaseUserEntity extends BaseEntity {
 
     @NotNull
     @Length(max = 255)
-    @Column(nullable = false, unique = true, updatable = false)
+    @Column(nullable = false, unique = true, updatable = false,length = 255)
     private String password;
 
     public String getEmail() {
