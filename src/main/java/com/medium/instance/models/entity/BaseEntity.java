@@ -45,7 +45,7 @@ public class BaseEntity implements Serializable {
 
     @Column(name = "updated_by", nullable = true)
     @LastModifiedBy
-    private UUID updateBy;
+    protected UUID updateBy;
 
     @NotNull
     @Column(length = 20, nullable = false, updatable = true)
