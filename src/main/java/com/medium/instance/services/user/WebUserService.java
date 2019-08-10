@@ -1,8 +1,10 @@
-package com.medium.instance.services;
+package com.medium.instance.services.user;
+
 
 import com.medium.instance.models.DTO.user.WebUserDTO;
 import com.medium.instance.models.entity.user.WebUserEntity;
 import com.medium.instance.repositories.WebUserRepository;
+import com.medium.instance.services.WebUserServiceInterface;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,8 @@ public class WebUserService implements WebUserServiceInterface {
 
     @Autowired
     WebUserRepository userRepo;
+
+
 
     @Override
     public WebUserDTO createWebUser(WebUserDTO webuserDTO) {

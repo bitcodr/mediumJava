@@ -4,7 +4,7 @@ package com.medium.instance.controllers;
 import com.medium.instance.models.DTO.user.WebUserDTO;
 import com.medium.instance.models.request.WebUserRequest;
 import com.medium.instance.models.response.user.WebUserResponse;
-import com.medium.instance.services.WebUserService;
+import com.medium.instance.services.user.WebUserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

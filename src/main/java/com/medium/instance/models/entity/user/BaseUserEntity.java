@@ -2,6 +2,8 @@ package com.medium.instance.models.entity.user;
 
 import com.medium.instance.models.entity.BaseEntity;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
@@ -11,14 +13,17 @@ import javax.validation.constraints.NotNull;
 @MappedSuperclass
 public class BaseUserEntity extends BaseEntity {
 
+    @Autowired
+    BCryptPasswordEncoder encoder;
+
     @NotNull
     @Length(min = 5, max = 30)
-    @Column(nullable = true, updatable = true,length = 30)
+    @Column(nullable = true, updatable = true, length = 30)
     private String name, lastName;
 
     @NotNull
     @Email
-    @Column(nullable = false, unique = true, updatable = false,length = 70)
+    @Column(nullable = false, unique = true, updatable = false, length = 70)
     private String email;
 
 
@@ -30,7 +35,7 @@ public class BaseUserEntity extends BaseEntity {
 
     @NotNull
     @Length(max = 255)
-    @Column(nullable = false, unique = true, updatable = false,length = 255)
+    @Column(nullable = false, unique = true, updatable = false, length = 255)
     private String password;
 
     public String getEmail() {
@@ -54,7 +59,7 @@ public class BaseUserEntity extends BaseEntity {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = encoder.encode(password);
     }
 
     public String getName() {
