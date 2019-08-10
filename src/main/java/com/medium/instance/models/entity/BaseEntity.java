@@ -13,45 +13,45 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
-
+@MappedSuperclass
 public class BaseEntity implements Serializable {
 
-    public static final long serialVersionUID = 1470104970029217041L;
+    private static final long serialVersionUID = 1470104970029217041L;
 
     @Id
     @NotNull
     @Column(nullable = false, unique = true,updatable = false)
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid" ,strategy = "org.hibernate.id.UUIDGenerator")
-    protected UUID id;
+    private UUID id;
 
     @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, updatable = false)
     @CreatedDate
-    protected Date createdAt;
+    private Date createdAt;
 
 
     @NotNull
     @Column(name = "created_by", nullable = false, updatable = false)
     @CreatedBy
-    protected UUID createdBy;
+    private UUID createdBy;
 
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_at", nullable = true)
     @LastModifiedDate
-    protected Date updatedAt;
+    private Date updatedAt;
 
 
     @Column(name = "updated_by", nullable = true)
     @LastModifiedBy
-    protected UUID updateBy;
+    private UUID updateBy;
 
     @NotNull
     @Column(length = 20, nullable = false, updatable = true)
     @Enumerated(value = EnumType.STRING)
-    protected Status status = Status.ACTIVATE;
+    private Status status = Status.ACTIVATE;
 
     public UUID getId() {
         return id;

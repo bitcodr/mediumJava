@@ -11,18 +11,18 @@ import java.util.UUID;
 
 public class BaseDTO implements Serializable {
 
-    public static final long serialVersionUID = 3156397202191748965L;
+    private static final long serialVersionUID = 3156397202191748965L;
 
     @Id
     @NotNull
-    protected UUID id;
+    private UUID id;
 
 
     @NotNull
-    protected Date createdAt;
+    private Date createdAt;
 
     @NotNull
-    protected Status status;
+    private Status status;
 
 
     public static long getSerialVersionUID() {

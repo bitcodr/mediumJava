@@ -4,32 +4,34 @@ import com.medium.instance.models.entity.BaseEntity;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
+@MappedSuperclass
 public class BaseUserEntity extends BaseEntity {
 
     @NotNull
     @Length(min = 5, max = 30)
     @Column(nullable = true, updatable = true)
-    protected String name, lastName;
+    private String name, lastName;
 
     @NotNull
     @Email
     @Column(nullable = false, unique = true, updatable = false)
-    protected String email;
+    private String email;
 
 
     @NotNull
     @Length(min = 8, max = 32)
     @Column(nullable = false, unique = true, updatable = false, length = 32)
-    protected String username;
+    private String username;
 
 
     @NotNull
     @Length(max = 255)
     @Column(nullable = false, unique = true, updatable = false)
-    protected String password;
+    private String password;
 
     public String getEmail() {
         return email;

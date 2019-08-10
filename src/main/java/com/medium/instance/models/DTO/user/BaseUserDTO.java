@@ -13,13 +13,13 @@ public class BaseUserDTO extends BaseDTO {
     @NotNull
     @Email
     @Column(length = 100, nullable = false)
-    protected String email;
+    private String email;
 
     @NotNull
     @Size(min = 8, max = 150)
     @Column(length = 150, nullable = false)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    protected String password;
+    private String password;
 
     public String getPassword() {
         return password;

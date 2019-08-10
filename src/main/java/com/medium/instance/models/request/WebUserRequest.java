@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 public class WebUserRequest implements Serializable {
 
-    public static final long serialVersionUID = 1525984938995909597L;
+    private static final long serialVersionUID = 1525984938995909597L;
 
     @NotNull
     @Length(min = 5, max = 30)
