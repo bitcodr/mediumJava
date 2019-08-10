@@ -23,10 +23,15 @@ public class AuthController {
 
 
     @PostMapping(path = "/register", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public ResponseEntity<WebUserResponse> registerUser(@Valid @RequestBody WebUserRequest webUser) {
-        ModelMapper mapper = new ModelMapper();
-        WebUserDTO webuserDTO = mapper.map(webUser,WebUserDTO.class);
-        WebUserResponse response = userService.createWebUser(webuserDTO);
+    public ResponseEntity<WebUserResponse> registerUser(@Valid @RequestBody WebUserRequest request) {
+
+        ModelMapper dtoMapper = new ModelMapper();
+        WebUserDTO webuserDTO = dtoMapper.map(request,WebUserDTO.class);
+        WebUserDTO userCreated = userService.createWebUser(webuserDTO);
+
+        ModelMapper responseMapper = new ModelMapper();
+        WebUserResponse response = responseMapper.map(userCreated,WebUserResponse.class);
+
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 

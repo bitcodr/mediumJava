@@ -1,6 +1,5 @@
 package com.medium.instance.repositories;
 
-import com.medium.instance.models.DTO.user.WebUserDTO;
 import com.medium.instance.models.entity.user.WebUserEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -12,5 +11,5 @@ import java.util.UUID;
 @Repository
 public interface WebUserRepository extends CrudRepository<WebUserEntity, UUID> {
 
-    WebUserDTO findByEmail(String email);
+    WebUserEntity findByEmail(String email);
 }

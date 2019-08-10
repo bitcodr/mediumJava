@@ -7,6 +7,8 @@ import java.util.UUID;
 
 public class BaseResponse implements Serializable {
 
+    public static final long serialVersionUID = 2129798182969054376L;
+
     @NotNull
     @Id
     private UUID id;

@@ -1,5 +1,6 @@
 package com.medium.instance.models.DTO.media;
 
+import com.medium.instance.models.DTO.BaseDTO;
 import com.medium.instance.models.MediaPrefix;
 import com.medium.instance.models.MediaSizeType;
 
@@ -7,9 +8,9 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.io.Serializable;
 
-public class MediaDTO implements Serializable {
+public class MediaDTO extends BaseDTO {
+
 
     @NotNull
     @Size(min = 1,max = 400)

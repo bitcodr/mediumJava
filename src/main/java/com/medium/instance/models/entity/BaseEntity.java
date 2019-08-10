@@ -14,6 +14,7 @@ import java.util.UUID;
 
 public class BaseEntity implements Serializable {
 
+    public static final long serialVersionUID = 1470104970029217041L;
 
     @Id
     @NotNull
@@ -21,6 +22,7 @@ public class BaseEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
+    @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, updatable = false)
     @CreatedDate
