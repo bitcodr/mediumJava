@@ -2,8 +2,6 @@ package com.medium.instance.models.entity.user;
 
 import com.medium.instance.models.entity.BaseEntity;
 import org.hibernate.validator.constraints.Length;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
@@ -13,8 +11,6 @@ import javax.validation.constraints.NotNull;
 @MappedSuperclass
 public class BaseUserEntity extends BaseEntity {
 
-    @Autowired
-    BCryptPasswordEncoder encoder;
 
     @NotNull
     @Length(min = 5, max = 30)
@@ -59,7 +55,7 @@ public class BaseUserEntity extends BaseEntity {
     }
 
     public void setPassword(String password) {
-        this.password = encoder.encode(password);
+        this.password = password;
     }
 
     public String getName() {
