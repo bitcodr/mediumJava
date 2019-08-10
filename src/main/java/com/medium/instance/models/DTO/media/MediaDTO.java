@@ -4,7 +4,6 @@ import com.medium.instance.models.DTO.BaseDTO;
 import com.medium.instance.models.MediaPrefix;
 import com.medium.instance.models.MediaSizeType;
 
-import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.NotNull;

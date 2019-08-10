@@ -10,6 +10,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity(name = "media")  // This tells Hibernate to make a table out of this class
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorValue("mediaEntity")
 public class MediaEntity extends BaseEntity {
 
 

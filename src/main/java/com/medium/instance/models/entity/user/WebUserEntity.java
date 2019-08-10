@@ -1,17 +1,19 @@
 package com.medium.instance.models.entity.user;
 
-import com.medium.instance.models.DTO.media.MediaDTO;
+import com.medium.instance.models.entity.media.MediaEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Entity(name = "users")  // This tells Hibernate to make a table out of this class
+@Entity(name = "users")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorValue("webUserEntity")
 public class WebUserEntity extends BaseUserEntity {
 
 
     @NotNull
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "webUser")
-    private MediaDTO avatar;
+    private MediaEntity avatar;
 
     @NotNull
     @Column(length = 400, nullable = false)
@@ -37,11 +39,11 @@ public class WebUserEntity extends BaseUserEntity {
         this.emailISVerified = emailISVerified;
     }
 
-    public MediaDTO getAvatar() {
+    public MediaEntity getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(MediaDTO avatar) {
+    public void setAvatar(MediaEntity avatar) {
         this.avatar = avatar;
     }
 }

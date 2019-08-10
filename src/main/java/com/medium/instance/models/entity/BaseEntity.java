@@ -13,6 +13,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
+
 public class BaseEntity implements Serializable {
 
     public static final long serialVersionUID = 1470104970029217041L;
