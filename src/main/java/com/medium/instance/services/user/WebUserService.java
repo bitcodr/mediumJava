@@ -27,7 +27,6 @@ public class WebUserService implements WebUserServiceInterface {
     @Transactional
     public WebUserDTO createWebUser(WebUserDTO webuserDTO) {
         ModelMapper entityMapper = new ModelMapper();
-        WebUserEntity instanceOfUserEntity = new WebUserEntity();
         WebUserEntity webUserEntity = entityMapper.map(webuserDTO, WebUserEntity.class);
         webUserEntity.setPassword(encoder.encode(webuserDTO.getPassword()));
         webUserEntity.setEmailVerificationToken(encoder.encode(webuserDTO.getUserName()));
