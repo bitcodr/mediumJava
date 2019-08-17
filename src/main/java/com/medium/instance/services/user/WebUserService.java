@@ -12,6 +12,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 public class WebUserService implements WebUserServiceInterface {
 
@@ -22,10 +24,13 @@ public class WebUserService implements WebUserServiceInterface {
     BCryptPasswordEncoder encoder;
 
     @Override
+    @Transactional
     public WebUserDTO createWebUser(WebUserDTO webuserDTO) {
         ModelMapper entityMapper = new ModelMapper();
+        WebUserEntity instanceOfUserEntity = new WebUserEntity();
         WebUserEntity webUserEntity = entityMapper.map(webuserDTO, WebUserEntity.class);
         webUserEntity.setPassword(encoder.encode(webuserDTO.getPassword()));
+        webUserEntity.setEmailVerificationToken(encoder.encode(webuserDTO.getUserName()));
         WebUserEntity createdUser = userRepo.save(webUserEntity);
         ModelMapper dtoMapper = new ModelMapper();
         return dtoMapper.map(createdUser, WebUserDTO.class);

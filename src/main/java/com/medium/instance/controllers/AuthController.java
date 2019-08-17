@@ -10,11 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/users")
+@Validated
 public class AuthController {
 
 
@@ -23,7 +25,7 @@ public class AuthController {
 
 
     @PostMapping(path = "/register", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public ResponseEntity<WebUserResponse> registerUser(@Valid @RequestBody WebUserRequest request) {
+    public ResponseEntity<WebUserResponse> registerUser(@RequestBody @Valid WebUserRequest request) {
         ModelMapper dtoMapper = new ModelMapper();
         WebUserDTO webuserDTO = dtoMapper.map(request,WebUserDTO.class);
         WebUserDTO userCreated = userService.createWebUser(webuserDTO);

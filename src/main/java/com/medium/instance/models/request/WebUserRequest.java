@@ -12,7 +12,7 @@ public class WebUserRequest implements Serializable {
 
     @NotNull
     @Length(min = 5, max = 30)
-    private String name, lastName;
+    private String firstName, lastName;
 
     @NotNull
     @Length(min = 5, max = 30)
@@ -30,12 +30,12 @@ public class WebUserRequest implements Serializable {
     @Length(min = 8, max = 32)
     private String passwordConfirmation;
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {

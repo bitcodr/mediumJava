@@ -2,6 +2,7 @@ package com.medium.instance.models.entity;
 
 import com.medium.instance.models.Status;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -9,6 +10,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
@@ -41,17 +43,19 @@ public class BaseEntity implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_at", nullable = true)
     @LastModifiedDate
+    @Null
     private Date updatedAt;
 
 
     @Column(name = "updated_by", nullable = true)
     @LastModifiedBy
+    @Null
     private UUID updateBy;
 
     @NotNull
     @Column(length = 20, nullable = false, updatable = true)
     @Enumerated(value = EnumType.STRING)
-    private Status status = Status.ACTIVATE;
+    private Status status;
 
     public UUID getId() {
         return id;

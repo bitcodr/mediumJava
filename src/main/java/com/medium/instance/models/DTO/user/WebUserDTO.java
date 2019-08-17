@@ -4,6 +4,7 @@ import com.medium.instance.models.DTO.media.MediaDTO;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Size;
 
 
@@ -14,10 +15,10 @@ public class WebUserDTO extends BaseUserDTO {
     @Column(nullable = false, length = 70, unique = true)
     private String firstName, lastName;
 
-    @NotNull
+    @Null
     private MediaDTO avatar;
 
-    @NotNull
+    @Null
     @Column(length = 400,nullable = false)
     private String emailVerificationToken;
 

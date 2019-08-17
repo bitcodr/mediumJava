@@ -15,7 +15,7 @@ public class BaseUserEntity extends BaseEntity {
     @NotNull
     @Length(min = 5, max = 30)
     @Column(nullable = true, updatable = true, length = 30)
-    private String name, lastName;
+    private String firstName, lastName;
 
     @NotNull
     @Email
@@ -26,7 +26,7 @@ public class BaseUserEntity extends BaseEntity {
     @NotNull
     @Length(min = 8, max = 32)
     @Column(nullable = false, unique = true, updatable = false, length = 32)
-    private String username;
+    private String userName;
 
 
     @NotNull
@@ -42,12 +42,12 @@ public class BaseUserEntity extends BaseEntity {
         this.email = email;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
@@ -58,12 +58,12 @@ public class BaseUserEntity extends BaseEntity {
         this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {

@@ -4,6 +4,7 @@ import com.medium.instance.models.entity.media.MediaEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
 @Entity(name = "users")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -11,7 +12,7 @@ import javax.validation.constraints.NotNull;
 public class WebUserEntity extends BaseUserEntity {
 
 
-    @NotNull
+    @Null
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "webUser")
     private MediaEntity avatar;
 
