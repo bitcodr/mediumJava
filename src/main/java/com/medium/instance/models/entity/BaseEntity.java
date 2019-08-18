@@ -1,12 +1,11 @@
 package com.medium.instance.models.entity;
 
 import com.medium.instance.models.Status;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.beans.factory.annotation.Value;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -30,19 +29,19 @@ public class BaseEntity implements Serializable {
     @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, updatable = false)
-    @CreatedDate
+    @CreationTimestamp
     private Date createdAt;
 
 
     @NotNull
     @Column(name = "created_by", nullable = false, updatable = false)
     @CreatedBy
-    private UUID createdBy;
+    private UUID createdBy = this.id;
 
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_at", nullable = true)
-    @LastModifiedDate
+    @UpdateTimestamp
     @Null
     private Date updatedAt;
 
