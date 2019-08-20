@@ -55,9 +55,9 @@ public class AuthenticateFilter extends UsernamePasswordAuthenticationFilter {
                 .compact();
 
         WebUserServiceInterface webUser = (WebUserServiceInterface) AppContext.getBean("WebUserService");
-        WebUserDTO webUserData =  webUser.getUser(userName);
+        WebUserDTO webUserData = webUser.getUser(userName);
 
         response.addHeader(WebSecurity.HEADER_STRING, WebSecurity.TOKEN_PREFIX + token);
-        response.addHeader("webUserId" , webUserData.getId().toString());
+        response.addHeader("webUserId", webUserData.getId().toString());
     }
 }
