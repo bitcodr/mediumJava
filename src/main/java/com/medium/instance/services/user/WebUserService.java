@@ -44,6 +44,14 @@ public class WebUserService implements WebUserServiceInterface {
     }
 
     @Override
+    public WebUserDTO getUser(String email) {
+        WebUserEntity webUserEntity =  userRepo.findByEmail(email);
+        if(webUserEntity == null) throw new UsernameNotFoundException(email);
+        ModelMapper mapper = new ModelMapper();
+        return mapper.map(webUserEntity,WebUserDTO.class);
+    }
+
+    @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         WebUserEntity webUserEntity =  userRepo.findByEmail(email);
         if(webUserEntity == null) throw new UsernameNotFoundException(email);

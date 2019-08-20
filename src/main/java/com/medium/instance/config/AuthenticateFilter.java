@@ -1,7 +1,9 @@
 package com.medium.instance.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.medium.instance.models.DTO.user.WebUserDTO;
 import com.medium.instance.models.request.WebUserLoginRequest;
+import com.medium.instance.services.WebUserServiceInterface;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -51,6 +53,11 @@ public class AuthenticateFilter extends UsernamePasswordAuthenticationFilter {
                 .setExpiration(new Date(System.currentTimeMillis() + WebSecurity.EXPIRE_TIME))
                 .signWith(SignatureAlgorithm.HS512, WebSecurity.TOKEN_SECRET)
                 .compact();
+
+        WebUserServiceInterface webUser = (WebUserServiceInterface) AppContext.getBean("WebUserService");
+        WebUserDTO webUserData =  webUser.getUser(userName);
+
         response.addHeader(WebSecurity.HEADER_STRING, WebSecurity.TOKEN_PREFIX + token);
+        response.addHeader("webUserId" , webUserData.getId().toString());
     }
 }

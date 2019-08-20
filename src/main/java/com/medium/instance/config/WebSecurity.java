@@ -14,7 +14,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     public static final long EXPIRE_TIME = 864000000;
     public static final String TOKEN_PREFIX = "Bearer ";
     public static final String HEADER_STRING = "Authorization";
-    public static final String SIGN_UP_URL = "/api/v1/users/register";
+    public static final String SIGN_UP_URL = "/register";
     public static final String TOKEN_SECRET = "4h3f43fDG32kac09x";
 
     private final WebUserServiceInterface userDetailsService;
