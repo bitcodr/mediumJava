@@ -1,6 +1,6 @@
 package com.medium.instance.config;
 
-import com.medium.instance.services.WebUserServiceInterface;
+import com.medium.instance.services.user.WebUserServiceInterface;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -36,8 +36,14 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         http.csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, SIGN_UP_URL)
                 .permitAll().anyRequest().authenticated()
-                .and().addFilter(new AuthenticateFilter(authenticationManager()));
+                .and().addFilter(getAuthenticationFilter());
     }
 
+
+    public AuthenticateFilter getAuthenticationFilter() throws Exception {
+        final AuthenticateFilter filter = new AuthenticateFilter(authenticationManager());
+        filter.setFilterProcessesUrl("/api/login");
+        return filter;
+    }
 
 }

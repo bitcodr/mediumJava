@@ -5,7 +5,6 @@ import com.medium.instance.models.DTO.user.WebUserDTO;
 import com.medium.instance.models.Status;
 import com.medium.instance.models.entity.user.WebUserEntity;
 import com.medium.instance.repositories.WebUserRepository;
-import com.medium.instance.services.WebUserServiceInterface;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;

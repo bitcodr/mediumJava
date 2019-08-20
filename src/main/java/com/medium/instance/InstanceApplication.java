@@ -19,7 +19,7 @@ public class InstanceApplication {
     }
 
     @Bean
-    public AppContext AppContext() {
+    public AppContext appContext() {
         return new AppContext();
     }
 }
