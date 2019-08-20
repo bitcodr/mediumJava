@@ -1,5 +1,6 @@
 package com.medium.instance;
 
+import com.medium.instance.config.AppContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -15,5 +16,10 @@ public class InstanceApplication {
     @Bean
     public static BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public static AppContext AppContext() {
+        return new AppContext();
     }
 }
