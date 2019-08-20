@@ -8,12 +8,14 @@ import com.medium.instance.repositories.WebUserRepository;
 import com.medium.instance.services.WebUserServiceInterface;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
@@ -42,8 +44,10 @@ public class WebUserService implements WebUserServiceInterface {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        return null;
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        WebUserEntity webUserEntity =  userRepo.findByEmail(email);
+        if(webUserEntity == null) throw new UsernameNotFoundException(email);
+        return new User(webUserEntity.getEmail(), webUserEntity.getPassword(), new ArrayList<>());
     }
 
 }

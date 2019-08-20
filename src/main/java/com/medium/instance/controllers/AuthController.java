@@ -35,10 +35,9 @@ public class AuthController {
     }
 
 
-//    @PostMapping(path = "/login")
-//    public UUID login() {
-//        return UUID.fromString("ok");
-//    }
+
+
+
 //
 //
 //    @GetMapping(path = "/{userID}", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})

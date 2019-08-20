@@ -11,6 +11,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 public class WebSecurity extends WebSecurityConfigurerAdapter {
 
+    public static final long EXPIRE_TIME = 864000000;
+    public static final String TOKEN_PREFIX = "Bearer ";
+    public static final String HEADER_STRING = "Authorization";
+    public static final String SIGN_UP_URL = "/api/v1/users/register";
+    public static final String TOKEN_SECRET = "4h3f43fDG32kac09x";
+
     private final WebUserServiceInterface userDetailsService;
     private final BCryptPasswordEncoder encoder;
 
@@ -28,7 +34,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/api/v1/users/register")
+                .antMatchers(HttpMethod.POST,SIGN_UP_URL)
                 .permitAll().anyRequest().authenticated();
     }
 
