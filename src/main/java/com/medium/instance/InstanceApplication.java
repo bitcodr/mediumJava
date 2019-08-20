@@ -14,12 +14,12 @@ public class InstanceApplication {
     }
 
     @Bean
-    public static BCryptPasswordEncoder passwordEncoder() {
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    public static AppContext AppContext() {
+    public AppContext AppContext() {
         return new AppContext();
     }
 }
