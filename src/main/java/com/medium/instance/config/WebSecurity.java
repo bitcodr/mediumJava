@@ -1,6 +1,6 @@
 package com.medium.instance.config;
 
-import com.medium.instance.services.user.WebUserServiceInterface;
+import com.medium.instance.services.WebUserServiceInterface;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -12,7 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class WebSecurity extends WebSecurityConfigurerAdapter {
 
     public static final long EXPIRE_TIME = 864000000;
-    public static final String TOKEN_PREFIX = "Bearer ";
+    public static final String TOKEN_PREFIX = "Bearer";
     public static final String HEADER_STRING = "Authorization";
     public static final String SIGN_UP_URL = "/register";
     public static final String TOKEN_SECRET = "4h3f43fDG32kac09x";

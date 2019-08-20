@@ -3,7 +3,7 @@ package com.medium.instance.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.medium.instance.models.DTO.user.WebUserDTO;
 import com.medium.instance.models.request.WebUserLoginRequest;
-import com.medium.instance.services.user.WebUserServiceInterface;
+import com.medium.instance.services.WebUserServiceInterface;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.authentication.AuthenticationManager;

@@ -1,4 +1,4 @@
-package com.medium.instance.services.user;
+package com.medium.instance.services;
 
 import com.medium.instance.models.DTO.user.WebUserDTO;
 import org.springframework.security.core.userdetails.UserDetailsService;

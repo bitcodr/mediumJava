@@ -1,4 +1,4 @@
-package com.medium.instance.services.user;
+package com.medium.instance.services;
 
 
 import com.medium.instance.models.DTO.user.WebUserDTO;
@@ -19,6 +19,7 @@ import java.util.Date;
 import java.util.UUID;
 
 @Service
+@Transactional
 public class WebUserService implements WebUserServiceInterface {
 
     @Autowired
@@ -28,7 +29,6 @@ public class WebUserService implements WebUserServiceInterface {
     BCryptPasswordEncoder encoder;
 
     @Override
-    @Transactional
     public WebUserDTO createWebUser(WebUserDTO webuserDTO) {
         ModelMapper entityMapper = new ModelMapper();
         WebUserEntity webUserEntity = entityMapper.map(webuserDTO, WebUserEntity.class);
@@ -44,16 +44,16 @@ public class WebUserService implements WebUserServiceInterface {
 
     @Override
     public WebUserDTO getUser(String email) {
-        WebUserEntity webUserEntity =  userRepo.findByEmail(email);
-        if(webUserEntity == null) throw new UsernameNotFoundException(email);
+        WebUserEntity webUserEntity = userRepo.findByEmail(email);
+        if (webUserEntity == null) throw new UsernameNotFoundException(email);
         ModelMapper mapper = new ModelMapper();
-        return mapper.map(webUserEntity,WebUserDTO.class);
+        return mapper.map(webUserEntity, WebUserDTO.class);
     }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        WebUserEntity webUserEntity =  userRepo.findByEmail(email);
-        if(webUserEntity == null) throw new UsernameNotFoundException(email);
+        WebUserEntity webUserEntity = userRepo.findByEmail(email);
+        if (webUserEntity == null) throw new UsernameNotFoundException(email);
         return new User(webUserEntity.getEmail(), webUserEntity.getPassword(), new ArrayList<>());
     }
 
