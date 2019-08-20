@@ -40,19 +40,19 @@ public class BaseEntity implements Serializable {
 
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "updated_at", nullable = true)
+    @Column(name = "updated_at")
     @UpdateTimestamp
     @Null
     private Date updatedAt;
 
 
-    @Column(name = "updated_by", nullable = true)
+    @Column(name = "updated_by")
     @LastModifiedBy
     @Null
     private UUID updateBy;
 
     @NotNull
-    @Column(length = 20, nullable = false, updatable = true)
+    @Column(length = 20, nullable = false)
     @Enumerated(value = EnumType.STRING)
     private Status status;
 

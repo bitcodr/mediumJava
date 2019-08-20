@@ -17,7 +17,7 @@ public class WebUserEntity extends BaseUserEntity {
     private MediaEntity avatar;
 
     @NotNull
-    @Column(length = 255, nullable = false,name = "email_verification_token")
+    @Column(nullable = false,name = "email_verification_token")
     private String emailVerificationToken;
 
     @NotNull

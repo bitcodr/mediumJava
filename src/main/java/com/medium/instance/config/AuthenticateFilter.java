@@ -3,6 +3,7 @@ package com.medium.instance.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.medium.instance.models.DTO.user.WebUserDTO;
 import com.medium.instance.models.request.WebUserLoginRequest;
+import com.medium.instance.services.WebUserService;
 import com.medium.instance.services.WebUserServiceInterface;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -54,7 +55,7 @@ public class AuthenticateFilter extends UsernamePasswordAuthenticationFilter {
                 .signWith(SignatureAlgorithm.HS512, WebSecurity.TOKEN_SECRET)
                 .compact();
 
-        WebUserServiceInterface webUser = (WebUserServiceInterface) AppContext.getBean("WebUserService");
+        WebUserServiceInterface webUser = BeanUtil.getBean(WebUserService.class);
         WebUserDTO webUserData = webUser.getUser(userName);
 
         response.addHeader(WebSecurity.HEADER_STRING, WebSecurity.TOKEN_PREFIX + token);

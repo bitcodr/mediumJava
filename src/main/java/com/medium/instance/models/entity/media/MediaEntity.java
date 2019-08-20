@@ -17,23 +17,23 @@ public class MediaEntity extends BaseEntity {
 
     @NotNull
     @Size(min = 1,max = 400)
-    @Column(length = 400,nullable = false, updatable = true)
+    @Column(length = 400,nullable = false)
     private String url;
 
     @NotNull
     @Size(min = 1,max = 10)
-    @Column(nullable = false,updatable = true,length = 10)
+    @Column(nullable = false,length = 10)
     @Enumerated(EnumType.ORDINAL)
     private MediaPrefix prefix;
 
     @NotNull
     @Size(min = 1,max = 11)
-    @Column(nullable = false, updatable = true, length = 11)
+    @Column(nullable = false, length = 11)
     private int height;
 
     @NotNull
     @Size(min = 1,max = 11)
-    @Column(nullable = false, updatable = true, length = 11)
+    @Column(nullable = false, length = 11)
     private int weight;
 
     @NotNull
@@ -41,7 +41,7 @@ public class MediaEntity extends BaseEntity {
     @Column(nullable = false,length = 11)
     private int width;
 
-    @Column(name = "size_type",nullable = false,updatable = true,length = 15)
+    @Column(name = "size_type",nullable = false,length = 15)
     @Enumerated(EnumType.ORDINAL)
     @NotNull
     @Size(min = 1,max = 15)
