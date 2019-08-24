@@ -5,10 +5,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.validation.Valid;
+import java.util.List;
 
-abstract public class Controller<response, request> {
+abstract public class Controller<request, response> {
 
-    abstract public ResponseEntity<response> list();
+    abstract public ResponseEntity<List<response>> list();
 
     abstract public ResponseEntity<response> get(@PathVariable String id);
 

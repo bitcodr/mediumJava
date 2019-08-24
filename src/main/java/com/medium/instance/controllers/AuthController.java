@@ -14,11 +14,13 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
 @Validated
-public class AuthController extends Controller<WebUserResponse, WebUserRequest> {
+public class AuthController extends Controller<WebUserRequest, WebUserResponse> {
 
 
     @Autowired
@@ -33,9 +35,9 @@ public class AuthController extends Controller<WebUserResponse, WebUserRequest> 
 
     @Override
     @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}, consumes = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<WebUserResponse> list() {
+    public ResponseEntity<List<WebUserResponse>> list() {
         WebUserResponse user = new WebUserResponse();
-        return new ResponseEntity<>(user, HttpStatus.OK);
+        return new ResponseEntity<>(new ArrayList<>(), HttpStatus.OK);
     }
 
     @Override
