@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 import javax.validation.constraints.Size;
+import java.util.Objects;
 
 
 public class WebUserDTO extends BaseUserDTO {
@@ -68,5 +69,23 @@ public class WebUserDTO extends BaseUserDTO {
 
     public void setAvatar(MediaDTO avatar) {
         this.avatar = avatar;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof WebUserDTO)) return false;
+        WebUserDTO that = (WebUserDTO) o;
+        return isEmailISVerified() == that.isEmailISVerified() &&
+                getFirstName().equals(that.getFirstName()) &&
+                getLastName().equals(that.getLastName()) &&
+                getAvatar().equals(that.getAvatar()) &&
+                getEmailVerificationToken().equals(that.getEmailVerificationToken());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getFirstName(), getLastName(), getAvatar(), getEmailVerificationToken(), isEmailISVerified());
     }
 }
