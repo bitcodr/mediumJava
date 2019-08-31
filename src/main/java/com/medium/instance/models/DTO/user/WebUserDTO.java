@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 import java.util.Objects;
 
 
-public class WebUserDTO extends BaseUserDTO {
+public class WebUserDTO extends BaseUserDTO implements Comparable<WebUserDTO> {
 
     @NotNull
     @Size(min = 5, max = 30)
@@ -88,4 +88,23 @@ public class WebUserDTO extends BaseUserDTO {
     public int hashCode() {
         return Objects.hash(getFirstName(), getLastName(), getAvatar(), getEmailVerificationToken(), isEmailISVerified());
     }
+
+    @Override
+    public int compareTo(WebUserDTO o) {
+        //Todo implement compare
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "WebUserDTO{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", avatar=" + avatar +
+                ", emailVerificationToken='" + emailVerificationToken + '\'' +
+                ", emailISVerified=" + emailISVerified +
+                '}';
+    }
+
+
 }
